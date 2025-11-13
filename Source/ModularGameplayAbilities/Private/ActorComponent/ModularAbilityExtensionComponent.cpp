@@ -73,6 +73,14 @@ void UModularAbilityExtensionComponent::InitializeAbilitySystem(UModularAbilityS
 		ensure(PawnData))
 	{
 		InASC->SetTagRelationshipMapping(PawnData->GetTagRelationshipMapping());
+		
+		TArray<UModularAbilitySet*> PawnAS = PawnData->GetAbilitySet();
+		for (UModularAbilitySet* AbilitySet : PawnAS)
+		{
+			AbilitySet->GiveToAbilitySystem(InASC, &CurrentGrantedHandles, this);
+			UE_LOG(LogModularGameplayAbilities, Verbose, TEXT("Granted ability set [%s] to ASC [%s] from pawn data"), *GetNameSafe(AbilitySet), *GetNameSafe(InASC));
+		}
+		
 	}
 
 	OnAbilitySystemInitialized.Broadcast();

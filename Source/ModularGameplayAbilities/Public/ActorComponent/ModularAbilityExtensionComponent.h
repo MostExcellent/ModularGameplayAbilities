@@ -1,5 +1,6 @@
 ﻿#pragma once
 #include "ModularAbilitySystemComponent.h"
+#include "GameplayAbilities/ModularAbilitySet.h"
 
 #include "ModularAbilityExtensionComponent.generated.h"
 
@@ -69,6 +70,12 @@ protected:
 	 */
 	UPROPERTY()
 	TObjectPtr<UModularAbilitySystemComponent> AbilitySystemComponent;
+
+	/**
+	 * Granted handles from giving pawn data startup ability sets to the ASC
+	 */
+	UPROPERTY()
+	FModularAbilitySet_GrantedHandles CurrentGrantedHandles;
 
 	/** Delegate fired when our pawn becomes the ability system's avatar actor */
 	FSimpleMulticastDelegate OnAbilitySystemInitialized;
