@@ -14,7 +14,7 @@ class UAbilityPawnDataInterface: public UInterface
 /**
  * Interface for extending PawnData with Ability information.
  */
-class IAbilityPawnDataInterface
+class MODULARGAMEPLAYABILITIES_API IAbilityPawnDataInterface
 {
 	GENERATED_BODY()
 
@@ -26,7 +26,7 @@ public:
 	 *
 	 * @return UModularAbilitySet*.
 	 */
-	virtual TArray<UModularAbilitySet*> GetAbilitySet() const = 0;
+	virtual TArray<UModularAbilitySet*> GetAbilitySet() const;
 
 	/**
 	 * Returns the pawn data's tag relationship mapping property.
@@ -35,5 +35,5 @@ public:
 	 *
 	 * @return UModularAbilityTagRelationshipMapping*.
 	 */
-	virtual UModularAbilityTagRelationshipMapping* GetTagRelationshipMapping() const = 0;
+	virtual UModularAbilityTagRelationshipMapping* GetTagRelationshipMapping() const;
 };
