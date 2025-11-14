@@ -6,18 +6,21 @@
 
 #include "ModularAbilityData.generated.h"
 
+#define  UE_API MODULARGAMEPLAYABILITIES_API
+
+
 /**
  * Global data asset that contains modular ability data.
  */
-UCLASS(BlueprintType, Const, meta=(DisplayName="Modular Ability Data", ShortTooltip="Global data asset containing modular ability data."))
+UCLASS(MinimalAPI, BlueprintType, Const, meta=(DisplayName="Modular Ability Data", ShortTooltip="Global data asset containing modular ability data."))
 class UModularAbilityData : public UPrimaryDataAsset
 {
 	GENERATED_BODY()
 
 public:
-	UModularAbilityData();
+	UE_API UModularAbilityData();
 
-	static const UModularAbilityData& Get();
+	UE_API static const UModularAbilityData& Get();
 
 	// Gameplay effect used to apply damage.  Uses SetByCaller for the damage magnitude.
 	UPROPERTY(EditDefaultsOnly, Category = "Default Gameplay Effects", meta = (DisplayName = "Damage Gameplay Effect (SetByCaller)"))
@@ -31,3 +34,5 @@ public:
 	UPROPERTY(EditDefaultsOnly, Category = "Default Gameplay Effects")
 	TSoftClassPtr<UGameplayEffect> DynamicTagGameplayEffect;
 };
+
+#undef UE_API
