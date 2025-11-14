@@ -74,7 +74,7 @@ public:
  * Data used to store handles to what has been granted by the ability set.
  */
 USTRUCT(BlueprintType)
-struct FModularAbilitySet_GrantedHandles
+struct MODULARGAMEPLAYABILITIES_API FModularAbilitySet_GrantedHandles
 {
 	GENERATED_BODY()
 
