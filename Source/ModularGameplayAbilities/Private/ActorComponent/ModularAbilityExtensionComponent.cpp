@@ -18,6 +18,7 @@
 #include UE_INLINE_GENERATED_CPP_BY_NAME(ModularAbilityExtensionComponent)
 
 const FName UModularAbilityExtensionComponent::NAME_ActorFeatureName("ModularAbilityExtension");
+const FName UModularAbilityExtensionComponent::NAME_AbilitySystemReady("AbilitySystemReady");
 
 UModularAbilityExtensionComponent::UModularAbilityExtensionComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer)
 {
@@ -84,6 +85,13 @@ void UModularAbilityExtensionComponent::InitializeAbilitySystem(UModularAbilityS
 	}
 
 	OnAbilitySystemInitialized.Broadcast();
+
+	// Send extension event to notify GameFeatureActions that abilities can now be added
+	// Send on BOTH the owner (PlayerState) and avatar (Pawn) so GameFeatureActions can target either
+	UE_LOG(LogModularGameplayAbilities, Log, TEXT("[ModularAbilityExtension] Sending AbilitySystemReady event for owner: %s and avatar: %s"),
+		*GetNameSafe(InOwnerActor), *GetNameSafe(Pawn));
+	UGameFrameworkComponentManager::SendGameFrameworkComponentExtensionEvent(InOwnerActor, NAME_AbilitySystemReady);
+	UGameFrameworkComponentManager::SendGameFrameworkComponentExtensionEvent(Pawn, NAME_AbilitySystemReady);
 }
 
 void UModularAbilityExtensionComponent::UninitializeAbilitySystem()

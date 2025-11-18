@@ -54,6 +54,10 @@ public:
 	virtual void CheckDefaultInitialization() override;
 
 	static const FName NAME_ActorFeatureName;
+
+	/** Event name sent when the ability system is initialized and ready to receive abilities */
+	static const FName NAME_AbilitySystemReady;
+	
 	/**
 	 * @}
 	 */
