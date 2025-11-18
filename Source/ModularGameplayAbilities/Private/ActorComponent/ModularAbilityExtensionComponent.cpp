@@ -257,7 +257,7 @@ bool UModularAbilityExtensionComponent::CanChangeInitState(UGameFrameworkCompone
 		// Wait for player state ASC and extension component.
 		const IAbilitySystemInterface* ModularPS = Cast<IAbilitySystemInterface>(GetPlayerState<AModularPlayerState>());
 
-		return ModularPS->GetAbilitySystemComponent() && Manager->HasFeatureReachedInitState(Pawn, UModularPawnComponent::NAME_ActorFeatureName, ModularGameplayTags::InitState_DataInitialized);
+		return ModularPS ? ModularPS->GetAbilitySystemComponent() && Manager->HasFeatureReachedInitState(Pawn, UModularPawnComponent::NAME_ActorFeatureName, ModularGameplayTags::InitState_DataInitialized) : false;
 	}
 	else if (CurrentState == ModularGameplayTags::InitState_DataInitialized
 		&& DesiredState == ModularGameplayTags::InitState_GameplayReady)
