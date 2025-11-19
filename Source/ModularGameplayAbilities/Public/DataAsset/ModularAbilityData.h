@@ -18,7 +18,7 @@ class MODULARGAMEPLAYABILITIES_API UModularAbilityData : public UPrimaryDataAsse
 public:
 	UModularAbilityData();
 
- static const UModularAbilityData& Get();
+	static const UModularAbilityData& Get();
 
 	// Gameplay effect used to apply damage.  Uses SetByCaller for the damage magnitude.
 	UPROPERTY(EditDefaultsOnly, Category = "Default Gameplay Effects", meta = (DisplayName = "Damage Gameplay Effect (SetByCaller)"))
