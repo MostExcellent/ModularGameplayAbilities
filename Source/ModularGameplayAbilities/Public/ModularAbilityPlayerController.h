@@ -1,13 +1,20 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "ModularPlayerController.h"
+#include "CommonPlayerController.h"
 #include "ModularAbilityPlayerController.generated.h"
+
 
 class UModularAbilitySystemComponent;
 
-UCLASS(Config = "Game")
-class MODULARGAMEPLAYABILITIES_API AModularAbilityPlayerController : public AModularPlayerController
+/**
+ * AModularAbilityPlayerController
+ * 
+ * Drives ModularAbilitySystemComponent input processing.
+ * Inherits from ACommonPlayerController to work with CommonUI.
+ */
+UCLASS()
+class MODULARGAMEPLAYABILITIES_API AModularAbilityPlayerController : public ACommonPlayerController
 {
 	GENERATED_BODY()
 
