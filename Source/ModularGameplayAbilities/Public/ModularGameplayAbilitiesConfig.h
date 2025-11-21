@@ -16,6 +16,6 @@ public:
 
 
 	// Global ability data asset to use.
-	UPROPERTY(Config, EditAnywhere, Category = AbilityData)
+	UPROPERTY(Config, EditAnywhere, BlueprintReadOnly, Category = AbilityData)
 	TSoftObjectPtr<UModularAbilityData> ModularAbilityDataPath;
 };
